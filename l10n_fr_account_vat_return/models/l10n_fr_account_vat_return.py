@@ -2164,7 +2164,7 @@ class L10nFrAccountVatReturn(models.Model):
         if not self.ca3_attachment_id:
             self.generate_ca3_attachment()
         action = {
-            "name": "FEC",
+            "name": "CA3",
             "type": "ir.actions.act_url",
             "url": "web/content/?model=%s&id=%d&filename_field=ca3_attachment_name&"
             "field=ca3_attachment_datas&download=true&filename=%s"
@@ -2294,28 +2294,30 @@ class L10nFrAccountVatReturn(models.Model):
         watermark_pdf_reader_p2 = PdfReader(packet2)
         watermark_pdf_reader_p3 = PdfReader(packet3)
         # read your existing PDF
-        ca3_original_fd = tools.file_open(
+        with tools.file_open(
             "l10n_fr_account_vat_return/report/CA3_cerfa.pdf", "rb"
-        )
-        ca3_original_reader = PdfReader(ca3_original_fd)
-        ca3_writer = PdfWriter()
-        # add the "watermark" (which is the new pdf) on the existing page
-        page1 = ca3_original_reader.pages[0]
-        page2 = ca3_original_reader.pages[1]
-        page3 = ca3_original_reader.pages[2]
-        page1.merge_page(watermark_pdf_reader_p1.pages[0])
-        page2.merge_page(watermark_pdf_reader_p2.pages[0])
-        page3.merge_page(watermark_pdf_reader_p3.pages[0])
-        ca3_writer.add_page(page1)
-        ca3_writer.add_page(page2)
-        ca3_writer.add_page(page3)
-        # finally, write "output" to a real file
-        out_ca3_io = io.BytesIO()
-        ca3_writer.write(out_ca3_io)
-        out_ca3_bytes = out_ca3_io.getvalue()
-        ca3_original_fd.close()
+        ) as ca3_original_fd:
+            ca3_original_reader = PdfReader(ca3_original_fd)
+            ca3_writer = PdfWriter()
+            # add the "watermark" (which is the new pdf) on the existing page
+            page1 = ca3_original_reader.pages[0]
+            page2 = ca3_original_reader.pages[1]
+            page3 = ca3_original_reader.pages[2]
+            page1.merge_page(watermark_pdf_reader_p1.pages[0])
+            page2.merge_page(watermark_pdf_reader_p2.pages[0])
+            page3.merge_page(watermark_pdf_reader_p3.pages[0])
+            ca3_writer.add_page(page1)
+            ca3_writer.add_page(page2)
+            ca3_writer.add_page(page3)
+            ca3_writer.pages[0].compress_content_streams()
+            ca3_writer.pages[1].compress_content_streams()
+            ca3_writer.pages[2].compress_content_streams()
+            # finally, write "output" to a real file
+            out_ca3_io = io.BytesIO()
+            ca3_writer.write(out_ca3_io)
+            out_ca3_bytes = out_ca3_io.getvalue()
 
-        filename = "CA3_%s.pdf" % self.display_name
+        filename = "CA3_%s.pdf" % self.name
         attach = self.env["ir.attachment"].create(
             {
                 "name": filename,
