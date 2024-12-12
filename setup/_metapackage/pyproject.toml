@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-oca-l10n-france"
-version = "18.0.20241201.0"
+version = "18.0.20241212.0"
 dependencies = [
     "odoo-addon-l10n_fr_hr_check_ssnid==18.0.*",
+    "odoo-addon-l10n_fr_state==18.0.*",
 ]
 classifiers=[
     "Programming Language :: Python",
