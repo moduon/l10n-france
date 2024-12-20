@@ -22,6 +22,8 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [l10n_fr_hr_check_ssnid](l10n_fr_hr_check_ssnid/) | 18.0.1.0.0 | [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | Check validity of Social Security Numbers in French companies
+[l10n_fr_siret](l10n_fr_siret/) | 18.0.1.0.0 | [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | Complete support for SIRET/SIREN/NIC with checksum validation
+[l10n_fr_siret_account](l10n_fr_siret_account/) | 18.0.1.0.0 | [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | Glue module between l10n_fr_siret and account
 [l10n_fr_state](l10n_fr_state/) | 18.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | Populate Database with French States (Régions)
 
 [//]: # (end addons)
