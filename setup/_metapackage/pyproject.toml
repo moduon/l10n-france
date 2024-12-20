@@ -1,7 +1,8 @@
 [project]
 name = "odoo-addons-oca-l10n-france"
-version = "18.0.20241220.0"
+version = "18.0.20241220.1"
 dependencies = [
+    "odoo-addon-l10n_fr_department==18.0.*",
     "odoo-addon-l10n_fr_hr_check_ssnid==18.0.*",
     "odoo-addon-l10n_fr_siret==18.0.*",
     "odoo-addon-l10n_fr_siret_account==18.0.*",
