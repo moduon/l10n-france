@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-oca-l10n-france"
-version = "17.0.20240928.0"
+version = "17.0.20241231.0"
 dependencies = [
     "odoo-addon-account_banking_fr_lcr>=17.0dev,<17.1dev",
+    "odoo-addon-account_statement_import_fr_cfonb>=17.0dev,<17.1dev",
     "odoo-addon-l10n_fr_account_invoice_facturx>=17.0dev,<17.1dev",
     "odoo-addon-l10n_fr_account_tax_unece>=17.0dev,<17.1dev",
     "odoo-addon-l10n_fr_chorus_account>=17.0dev,<17.1dev",
