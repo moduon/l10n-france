@@ -21,6 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[l10n_fr_account_tax_unece](l10n_fr_account_tax_unece/) | 18.0.1.0.0 | [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | Auto-configure UNECE params on French taxes
 [l10n_fr_cog](l10n_fr_cog/) | 18.0.1.0.0 | [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | Add Code Officiel Géographique (COG) on countries
 [l10n_fr_das2](l10n_fr_das2/) | 18.0.1.0.0 | [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | DAS2 (France)
 [l10n_fr_department](l10n_fr_department/) | 18.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | Populate Database with French Departments (Départements)
